@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import online
-import os,threading,time
+import os
 from datetime import datetime
 
 sg.theme('Reddit')
@@ -80,12 +80,6 @@ def main():
         [sg.Input(size=(75,5),key='_INPUT_'),sg.Button('发送')],
     ]
     window = sg.Window('消息框',layout,font=('微软雅黑 10'),size=(700,500),return_keyboard_events=True)
-    # def Update_Message():
-    #     while True:
-    #         print('Updating Message...')
-    #         window.Element('_OUTPUT_').Update(online.get_realtime_message(ClassID,Old_Message),text_color_for_value='red',append=True)
-    #         time.sleep(3)
-    # threading.Thread(target=Update_Message).start()
     while True:
         event,value = window.Read(timeout=1500)
         if event == sg.WIN_CLOSED:
